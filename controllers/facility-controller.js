@@ -43,7 +43,7 @@ module.exports = {
         });
     },
 
-    getUserDataById: (req, res) => {
+   searchUserById: (req, res) => {
         const facilityId  = req.params.id;
 
         if(!facilityId){
@@ -52,7 +52,8 @@ module.exports = {
             });
         }
 
-        const selectQuery = `SELECT * FROM facilities INNER JOIN users ON facilities.user_id = users.id WHERE facilities.id = ?`;
+        const selectQuery = `SELECT *, facilities.id AS facility_id, users.id AS user_id
+        FROM facilities INNER JOIN users ON facilities.user_id = users.id WHERE facilities.id = ?`;
         
         db.query(selectQuery, [facilityId], (error, results) => {
             if (error) {
@@ -62,10 +63,13 @@ module.exports = {
                 });
             }
             const userData = results.map(user => ({
-                facility_name: user.facility_name,
-                collector_name: user.name,
+                facility_id: user.facility_id,
+                user_id: user.user_id,
+                username: user.username,
                 email: user.email,
                 phone: user.phone,
+                collector_name: user.name,
+                facility_name: user.facility_name,
             }));
             res.status(200).json(userData);
         });
