@@ -14,8 +14,8 @@ const facilityController = require('../controllers/facility-controller.js');
 
 // Route to update facility name by user ID's facility
 router.put('/update-facility-name/:id', userMiddleware.userAuthorization('collector'), facilityController.updateFacilityName);
-// Route to get user data by facility ID
-router.get('/user-data/:id', userMiddleware.userAuthorization('collector'), facilityController.getUserDataById);
+// Route to search data by user ID
+router.get('/search-user/:id', facilityController.searchFacilityByUserId);
 // Route to search data by facility ID
 router.get('/search/:id', facilityController.searchFacilityById);
 
