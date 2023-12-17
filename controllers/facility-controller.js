@@ -43,38 +43,6 @@ module.exports = {
         });
     },
 
-   searchUserById: (req, res) => {
-        const facilityId  = req.params.id;
-
-        if(!facilityId){
-            return res.status(400).json({
-                error: 'Bad request: Missing facility ID',
-            });
-        }
-
-        const selectQuery = `SELECT *, facilities.id AS facility_id, users.id AS user_id
-        FROM facilities INNER JOIN users ON facilities.user_id = users.id WHERE facilities.id = ?`;
-        
-        db.query(selectQuery, [facilityId], (error, results) => {
-            if (error) {
-                console.error('Error retrieving user profile:', error);
-                return res.status(500).json({
-                    error: 'An internal server error occured',
-                });
-            }
-            const userData = results.map(user => ({
-                facility_id: user.facility_id,
-                user_id: user.user_id,
-                username: user.username,
-                email: user.email,
-                phone: user.phone,
-                collector_name: user.name,
-                facility_name: user.facility_name,
-            }));
-            res.status(200).json(userData);
-        });
-    },
-
     searchFacilityById: (req, res) => {
         const facilityId = req.params.id;
     
@@ -108,6 +76,37 @@ module.exports = {
                 facility_name: facilityData.facility_name,
             });
         });
-    }
+    },
 
+    searchFacilityByUserId: (req, res) => {
+        const userId  = req.params.id;
+
+        if(!userId){
+            return res.status(400).json({
+                error: 'Bad request: Missing search ID',
+            });
+        }
+
+        const selectQuery = `SELECT *, users.id AS user_id, facilities.id AS facility_id
+        FROM users INNER JOIN facilities ON users.id = facilities.user_id WHERE users.id = ?`;
+        
+        db.query(selectQuery, [userId], (error, results) => {
+            if (error) {
+                console.error('Error retrieving user profile:', error);
+                return res.status(500).json({
+                    error: 'An internal server error occured',
+                });
+            }
+            const userData = results.map(user => ({
+                facility_id: user.facility_id,
+                user_id: user.user_id,
+                username: user.username,
+                email: user.email,
+                phone: user.phone,
+                collector_name: user.name,
+                facility_name: user.facility_name,
+            }));
+            res.status(200).json(userData);
+        });
+    }
 }
