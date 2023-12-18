@@ -102,7 +102,7 @@ This repository contains the codebase for our cloud computing part. Below are th
 As shown in the diagram, the tables and their relationship details are used for database creation.
 
 ### Cloud Architecture
-![cloud_architecture.png](https://github.com/BersihKan-CH2PS361/cloud-computing/blob/main/diagrams/relational-model.png) <br>
+![cloud_architecture.png](https://github.com/BersihKan-CH2PS361/cloud-computing/blob/main/diagrams/cloud-architecture.png) <br>
 As shown in the architecture diagram, the project used the following cloud services for its infrastructure:
 * __Cloud Storage__, is used for storing SQL scripts.
 * __Cloud SQL (MySQL)__, is used for storing application data and managing structured data for the application.
