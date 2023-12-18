@@ -139,8 +139,8 @@ Create the database in MySQL based on the provided relational model above.
 Set up the environment configuration by creating a `.env` file and adding the database connection variables.
 ```bash
 DB_HOST=<DB_HOSTNAME/CLOUD_SQL_INSTANCE_PUBLIC_IP>
-DB_USER=root
-DB_NAME=api_backend
+DB_USER=<DB_USER>
+DB_NAME=<DB_NAME>
 DB_PASSWORD=<DB_PASSWORD>
 ```
 ### Step 5: Run
