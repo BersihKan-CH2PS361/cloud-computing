@@ -17,6 +17,11 @@ const collectorRoutes = require('./routes/collector-routes.js');
 const orderRoutes = require('./routes/order-routes.js');
 const contentRoutes = require('./routes/content-routes.js');
 const facilityRoutes = require('./routes/facility-routes.js');
+
+app.get('/', (req, res) => {
+    res.send('Hello, this is Bersih.Kan API!');
+});
+
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/collectors', collectorRoutes);
