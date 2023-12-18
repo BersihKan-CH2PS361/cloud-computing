@@ -152,7 +152,7 @@ DB_PASSWORD=<DB_PASSWORD>
    ```bash
    npm run start-dev
    ```
-2. Open http://localhost:3000/ and ensure the expected message is displayed.
+2. Open http://localhost:3000/ and ensure the expected message is displayed.<br>
    ![image](https://github.com/BersihKan-CH2PS361/cloud-computing/assets/87643077/2f2b4e3c-0007-426b-a112-a80984264104)
 3. Once testing is done, stop the server using `CTRL+C` then press `Y`.
 ### Step 6: API Test
