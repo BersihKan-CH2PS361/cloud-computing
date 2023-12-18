@@ -135,17 +135,17 @@ npm install
 ```
 ### Step 3: Create Database
 Create the database according to the relational model above using MySQL or Cloud SQL.
-### Step 3: Configuration
+### Step 4: Configuration
 Set up the environment configuration by creating a `.env` file and adding the database connection variables.
-### Step 4: Run
+### Step 5: Run
 1. Start the server using the following command.
    ```bash
    npm start
    ```
 2. Open https://localhost:3000/
-### Step 5: API test
+### Step 6: API Test
 Test the API using a testing application such as [Postman](https://www.postman.com/).
-### Step 6: Deploy to the Cloud
+### Step 7: Deploy to the Cloud
 1. Enable Cloud Build API and Cloud SQL Admin API.
 2. Clone the repository in the Shell.
 3. Set up environment configuration.
