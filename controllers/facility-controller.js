@@ -52,7 +52,8 @@ module.exports = {
             });
         }
     
-        const searchQuery = `SELECT * FROM facilities WHERE id = ?`;
+        const searchQuery = `SELECT *, users.id AS user_id, facilities.id AS facility_id
+        FROM users INNER JOIN facilities ON users.id = facilities.user_id WHERE facilities.id = ?`;
     
         db.query(searchQuery, [facilityId], (error, results) => {
             if (error) {
@@ -68,13 +69,17 @@ module.exports = {
                 });
             }
     
-            const facilityData = results[0]; 
+            const facilityData = {
+                facility_id: results[0].facility_id,
+                user_id: results[0].user_id,
+                username: results[0].username,
+                email: results[0].email,
+                phone: results[0].phone,
+                collector_name: results[0].name,
+                facility_name: results[0].facility_name,
+            };
     
-            res.status(200).json({
-                facility_id: facilityData.id,
-                user_id: facilityData.user_id,
-                facility_name: facilityData.facility_name,
-            });
+            res.status(200).json(facilityData);
         });
     },
 

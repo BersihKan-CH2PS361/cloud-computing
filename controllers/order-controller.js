@@ -38,7 +38,9 @@ module.exports = {
             });
         }
 
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, (SELECT name FROM users WHERE id = orders.user_id) AS user_name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, 
+        (SELECT name FROM users WHERE id = orders.user_id) AS user_name,
+        (SELECT phone FROM users WHERE id = orders.user_id) AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -61,6 +63,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 collector_name: order.collector_name,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
@@ -80,7 +83,9 @@ module.exports = {
     },
 
     getAllOrderDataPickUp: (req, res) => {
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, (SELECT name FROM users WHERE id = orders.user_id) AS user_name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, 
+        (SELECT name FROM users WHERE id = orders.user_id) AS user_name,
+        (SELECT phone FROM users WHERE id = orders.user_id) AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -103,6 +108,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 collector_name: order.collector_name,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
@@ -122,7 +128,9 @@ module.exports = {
     },
 
     getAllOrderDataArrived: (req, res) => {
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, (SELECT name FROM users WHERE id = orders.user_id) AS user_name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, 
+        (SELECT name FROM users WHERE id = orders.user_id) AS user_name,
+        (SELECT phone FROM users WHERE id = orders.user_id) AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -145,6 +153,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 collector_name: order.collector_name,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
@@ -164,7 +173,9 @@ module.exports = {
     },
 
     getAllOrderDataDelivering: (req, res) => {
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, (SELECT name FROM users WHERE id = orders.user_id) AS user_name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, 
+        (SELECT name FROM users WHERE id = orders.user_id) AS user_name,
+        (SELECT phone FROM users WHERE id = orders.user_id) AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -187,6 +198,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 collector_name: order.collector_name,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
@@ -206,7 +218,9 @@ module.exports = {
     },
 
     getAllOrderDataDelivered: (req, res) => {
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, (SELECT name FROM users WHERE id = orders.user_id) AS user_name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name AS collector_name, 
+        (SELECT name FROM users WHERE id = orders.user_id) AS user_name,
+        (SELECT phone FROM users WHERE id = orders.user_id) AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -229,6 +243,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 collector_name: order.collector_name,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
@@ -274,7 +289,7 @@ module.exports = {
     },
 
     getAllOrderData: (req, res) => {
-        const getUserOrder = `SELECT orders.*, users.name AS user_name 
+        const getUserOrder = `SELECT orders.*, users.name AS user_name, users.phone AS user_phone 
         FROM orders 
         LEFT JOIN users ON orders.user_id = users.id 
         WHERE order_status = 'pick_up'`;
@@ -295,6 +310,7 @@ module.exports = {
                 order_id: order.id,
                 user_id: order.user_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
                 user_notes: order.user_notes,
@@ -320,7 +336,7 @@ module.exports = {
             });
         }
 
-        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name 
+        const getUserOrder = `SELECT orders.*, facilities.facility_name, users.name
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.facility_id = users.id 
@@ -418,7 +434,7 @@ module.exports = {
             });
         }
 
-        const getCollectorOrder = `SELECT orders.*, facilities.facility_name, users.name AS user_name 
+        const getCollectorOrder = `SELECT orders.*, facilities.facility_name, users.name AS user_name, users.phone AS user_phone 
         FROM orders 
         LEFT JOIN facilities ON orders.facility_id = facilities.user_id 
         LEFT JOIN users ON orders.user_id = users.id 
@@ -441,6 +457,7 @@ module.exports = {
                 user_id: order.user_id,
                 collector_id: order.facility_id,
                 user_name: order.user_name,
+                user_phone: order.user_phone,
                 waste_type: order.waste_type,
                 waste_qty: order.waste_qty,
                 user_notes: order.user_notes,
