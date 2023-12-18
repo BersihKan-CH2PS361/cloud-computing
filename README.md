@@ -123,13 +123,13 @@ The project used the following dependencies:
 ## Replicating Steps
 Below are the steps to replicate this project.
 ### Step 1: Clone Repository
-Clone this repository to your local machine.
+Clone this repository to your local machine using the following command.
 ```bash
 git clone https://github.com/BersihKan-CH2PS361/cloud-computing.git
 cd cloud-computing
 ```
 ### Step 2: Install Dependencies
-For local environment, perform necessary installation steps.
+Install the dependencies using the following command.
 ```bash
 npm install
 ```
