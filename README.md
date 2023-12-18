@@ -123,7 +123,7 @@ The project used the following dependencies:
 ## Replicating Steps
 Below are the steps to replicate this project.
 ### Step 1: Clone Repository
-Clone this repository to your local machine in terminal, or if you prefer in cloud environment then use Shell.
+Clone this repository to your local machine.
 ```bash
 git clone https://github.com/BersihKan-CH2PS361/cloud-computing.git
 cd cloud-computing
