@@ -134,11 +134,11 @@ Install the dependencies using the following command:
 npm install
 ```
 ### Step 3: Create Database
-Create the database in MySQL based on the provided relational model above.
+Create the database in MySQL based on the provided [relational model](https://github.com/BersihKan-CH2PS361/cloud-computing/?tab=readme-ov-file#relational-model) above.
 ### Step 4: Configuration
 Set up the environment configuration by creating a `.env` file and adding the database connection variables.
 ```bash
-DB_HOST=<DB_HOSTNAME/CLOUD_SQL_INSTANCE_PUBLIC_IP>
+DB_HOST=<DB_HOSTNAME or CLOUD_SQL_INSTANCE_PUBLIC_IP>
 DB_USER=<DB_USER>
 DB_NAME=<DB_NAME>
 DB_PASSWORD=<DB_PASSWORD>
@@ -152,18 +152,21 @@ DB_PASSWORD=<DB_PASSWORD>
    ```bash
    npm run start-dev
    ```
-2. Open http://localhost:3000/ and ensure the expected message is displayed.<br>
+2. Open http://localhost:3000/ in a web browser and ensure the expected message is displayed.<br>
    ![image](https://github.com/BersihKan-CH2PS361/cloud-computing/assets/87643077/2f2b4e3c-0007-426b-a112-a80984264104)
 3. Once testing is done, stop the server using `CTRL+C` then press `Y`.
 ### Step 6: API Test
 Test the API using a testing application such as [Postman](https://www.postman.com/). For documentation, you can refer to the [Postman Documentation](https://learning.postman.com/docs/sending-requests/requests/).
 ### Step 7: Deploy to the Cloud using Google Cloud Platform
+As mentioned before in the [cloud architecture](https://github.com/BersihKan-CH2PS361/cloud-computing/?tab=readme-ov-file#cloud-architecture), we used Cloud SQL (MySQL) and Cloud Run. Below are steps to deploy this project in Cloud.
 1. Enable the Cloud Build API and Cloud SQL Admin API.
 2. Open Cloud Shell.
 3. Clone the repository.
-4. Set up the environment configuration.
-5. Deploy the application using the following command:
+4. __[Optional]__ Create database in Cloud SQL.<br>
+   If you haven't created a database in Cloud SQL, you can utilize Cloud Storage to store the SQL script in your bucket then import it into the SQL instance.
+5. Set up the environment configuration.
+6. Deploy the application using the following command:
    ```bash
    gcloud run deploy --source .
    ```
-6. Open `https://<your_application_url>` to access your deployed application.
+7. Access your deployed application by opening `https://<your_application_url>` in a web browser.
