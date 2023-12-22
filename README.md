@@ -33,9 +33,6 @@ This repository contains the codebase for our cloud computing part. Below are th
   ```
   PUT /collectors/update-profile/:id
   ```
-  ```
-  PUT /collectors/update-id/:id
-  ```
 * Orders
   ```
   GET /orders/:id
