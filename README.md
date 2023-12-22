@@ -156,7 +156,7 @@ DB_PASSWORD=<DB_PASSWORD>
    ![image](https://github.com/BersihKan-CH2PS361/cloud-computing/assets/87643077/2f2b4e3c-0007-426b-a112-a80984264104)
 3. Once testing is done, stop the server using `CTRL+C` then press `Y`.
 ### Step 6: API Test
-Test the API using a testing application such as [Postman](https://www.postman.com/). For our API documentation, you can refer to the [Postman API Documentation]([https://learning.postman.com/docs/sending-requests/requests/](https://documenter.getpostman.com/view/30076504/2s9YkodgaZ)).
+Test the API using a testing application such as [Postman](https://www.postman.com/). For our API documentation, you can refer to the [Postman API Documentation](https://documenter.getpostman.com/view/30076504/2s9YkodgaZ).
 ### Step 7: Deploy to the Cloud using Google Cloud Platform
 As mentioned before in the [cloud architecture](https://github.com/BersihKan-CH2PS361/cloud-computing/?tab=readme-ov-file#cloud-architecture), we used Cloud SQL (MySQL) and Cloud Run. Below are steps to deploy this project in Cloud.
 1. Enable the Cloud Build API and Cloud SQL Admin API.
